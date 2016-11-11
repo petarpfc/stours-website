@@ -1,7 +1,22 @@
 {
-    "name": "softwaretours/website",
-    "description": "Software tours user site",
-    "type": "project",
-    "minimum-stability": "dev",
-    "require": {}
+  "name": "software-tours/site",
+  "description": "Project for simple web site",
+  "keywords": [
+    "site",
+    "website"
+  ],
+  "homepage": "https://github.com/Softwaretours/site",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "SoftwareTours",
+      "email": "info@softwaretours.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Software-tours\\Site\\": "src"
+    }
+  }
 }
