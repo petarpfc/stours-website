@@ -5,6 +5,9 @@
     "site",
     "website"
   ],
+  "require-dev": {
+        
+  }
   "homepage": "https://github.com/Softwaretours/site",
   "type": "library",
   "license": "MIT",
