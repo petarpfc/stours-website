@@ -1,23 +1,19 @@
 {
   "name": "software-tours/site",
-  "source": {
-	"url": "https://github.com/petarpfc/stours-website",
-	"type": "vcs",
-	"reference": "origin/master"
-                
-  },
   "description": "Project for simple web site",
   "keywords": [
     "site",
     "website"
   ],
+  "homepage": "https://github.com/petarpfc/stours-website",
+  "type": "library",
   "license": "MIT",
   "authors": [
     {
       "name": "SoftwareTours",
       "email": "info@softwaretours.com"
     }
-  ], 
+  ],
   "autoload": {
     "psr-4": {
       "Softwaretours\\Site\\": "src/"
