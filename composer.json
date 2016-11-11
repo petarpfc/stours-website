@@ -1,11 +1,11 @@
 {
   "name": "software-tours/site",
-  "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/petarpfc/stours-website"
-        }
-  ],
+  "source": {
+	"url": "https://github.com/petarpfc/stours-website",
+	"type": "vcs",
+	"reference": "origin/master"
+                
+  },
   "description": "Project for simple web site",
   "keywords": [
     "site",
