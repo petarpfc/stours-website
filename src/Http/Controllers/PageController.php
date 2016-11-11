@@ -59,7 +59,7 @@ class PageController extends Controller
        $result = (isset($result->content))? $result->content:$result;
        //var_dump($result); exit();
        if($result->not_found)
-       		return view('page.not-found');
+       		return view('site::page.not-found');
        if(isset($result->custom_footer) && $result->custom_footer != null)
            	View::share('custom_footer', $result->custom_footer);
        return view('site::page.page', ['title' => $result->title, 'product' => $result->product, 'posts' => $result->posts, 'settings' => $result->settings, 'menuMiddle' => $result->menuMiddle, 'page_list' => $result->page_list, 'totalPosts' => $result->totalPosts]);
