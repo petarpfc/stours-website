@@ -17,7 +17,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Software-tours\\Site\\": "src"
+      "Softwaretours\\Site\\": "src/"
     }
   }
 }
