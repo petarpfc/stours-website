@@ -6,6 +6,9 @@
             "url": "https://github.com/petarpfc/stours-website"
         }
   ],
+  dependencies: {
+   "software-tours/site": "dev-master"
+  },
   "description": "Project for simple web site",
   "keywords": [
     "site",
