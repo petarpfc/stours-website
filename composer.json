@@ -1,6 +1,6 @@
 {
     "name": "softwaretours/website",
-    "description": "Software tours users site",
+    "description": "Software tours user site",
     "type": "project",
     "minimum-stability": "dev",
     "require": {}
