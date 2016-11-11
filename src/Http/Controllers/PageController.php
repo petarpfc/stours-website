@@ -62,7 +62,7 @@ class PageController extends Controller
        		return view('page.not-found');
        if(isset($result->custom_footer) && $result->custom_footer != null)
            	View::share('custom_footer', $result->custom_footer);
-       return view('package::page.page', ['title' => $result->title, 'product' => $result->product, 'posts' => $result->posts, 'settings' => $result->settings, 'menuMiddle' => $result->menuMiddle, 'page_list' => $result->page_list, 'totalPosts' => $result->totalPosts]);
+       return view('site::page.page', ['title' => $result->title, 'product' => $result->product, 'posts' => $result->posts, 'settings' => $result->settings, 'menuMiddle' => $result->menuMiddle, 'page_list' => $result->page_list, 'totalPosts' => $result->totalPosts]);
     }
 
     /**
@@ -81,7 +81,7 @@ class PageController extends Controller
     public function loadPosts(Request $request)
     {
         $result = json_decode($this->repositoryObj->loadPosts($request));
-        $returnHTML =  view('package::partials.posts',['posts' => $result->posts, 'settings' => $result->settings, 'ajax' => $result->ajax])->render();
+        $returnHTML =  view('site::partials.posts',['posts' => $result->posts, 'settings' => $result->settings, 'ajax' => $result->ajax])->render();
         return response()->json( array('success' => true, 'html'=>$returnHTML) );
 
     }

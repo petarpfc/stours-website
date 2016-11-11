@@ -1,5 +1,5 @@
 @section('head')
-	{!! Html::style('modules/site/packages/swiper/css/swiper.min.css') !!}
+	<link rel="stylesheet" href="{{URL::asset('modules/site/packages/swiper/css/swiper.min.css')}}">
 @stop
 @if(count($product->images)>=1)
 	<div id="slajder">

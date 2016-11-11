@@ -40,7 +40,7 @@ class SiteServiceProvider extends ServiceProvider
         
         
 
-        view()->composer(['package::layouts.master'], function ($view) {
+        view()->composer(['site::layouts.master'], function ($view) {
             
             $user_id = env('ACCOUNT_ID');
             
@@ -134,7 +134,7 @@ class SiteServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-    	$this->loadViewsFrom((__DIR__).'/../Resources/views', 'package');
+    	$this->loadViewsFrom((__DIR__).'/../Resources/views', 'site');
     	
         /* $viewPath = base_path('resources/views/modules/site');
 
