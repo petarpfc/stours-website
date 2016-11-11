@@ -28,6 +28,13 @@ class SiteServiceProvider extends ServiceProvider
         //$this->registerTranslations();
         //$this->registerConfig();
         $this->registerViews();
+        
+        
+        $this->publishes([
+        		__DIR__.'/../Assets' => public_path('modules/site'),
+        ], 'public');
+        
+        
 
         view()->composer(['package::layouts.master'], function ($view) {
             

@@ -1,15 +1,15 @@
-@extends('package::layouts.master')
+@extends('site::layouts.master')
 @section('scripts_js')
 <script>
 	var $url_load_more = "{{route('posts.load-more')}}"
 	var token = "{{ csrf_token() }}";
 </script>
-<script src="{{URL::asset('../packages/softwaretours/site/src/assets/js/ajax-functions.js')}}"></script>
+<script src="{{URL::asset('/modules/site/js/ajax-functions.js')}}"></script>
 @endsection
 @section('content')
 	{{--toDO: odvojiti page layout i homePageLayou jer homepage ce imati puno opcija--}}
 	@if(strtolower($title) == 'home')
-		@include('package::partials.slider')
+		@include('site::partials.slider')
 		<section class="hide">
 			<div class="container">
 				<div class="row">
@@ -31,9 +31,9 @@
 			</div>
 		</section>
 	@else
-		@include('package::partials.slider')
+		@include('site::partials.slider')
 		@if(isset($menuMiddle))
-			@include('package::partials.middle-menu')
+			@include('site::partials.middle-menu')
 		@endif
 		<section class="hide">
 			<div class="container">
@@ -53,9 +53,9 @@
 						@if(isset($posts))
 							@if(count($posts)>0)
 								@if($page_list == true)
-									@include('package::partials.page_list')
+									@include('site::partials.page_list')
 								@else
-									@include('package::partials.posts')
+									@include('site::partials.posts')
 								@endif
 							@endif
 						@else {!! $product->content !!}
@@ -66,9 +66,9 @@
 		</section>
 	@endif
 		@if(isset($product->maps) and $product->maps->show_on_product)
-			@include('package::partials.map')
+			@include('site::partials.map')
 		@endif
         @if(isset($product->settingsContact) and $product->settingsContact->show_on_product)
-            @include('package::forms.contactForm')
+            @include('site::forms.contactForm')
         @endif
 @endsection

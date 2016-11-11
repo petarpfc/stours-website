@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="navbar-header">
 
-			<a href="{{route('page')}}" ><img src="{{URL::asset('../packages/softwaretours/site/src/assets/images/')}}<?php echo '/'.$user['logo'];?>" title="logo" class="head-pic"/></a>
+			<a href="{{route('page')}}" ><img src="{{URL::asset($user['logo'])}}" title="logo" class="head-pic"/></a>
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 			<span class="sr-only">Toggle navigation</span>
 			<span class="icon-bar"></span>
