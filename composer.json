@@ -1,6 +1,6 @@
 {
   "name": "software-tours/site",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "description": "Project for simple web site",
   "keywords": [
     "site",
