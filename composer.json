@@ -17,10 +17,7 @@
       "name": "SoftwareTours",
       "email": "info@softwaretours.com"
     }
-  ],
-  "require": {
-      "software-tours/site": "dev-master"
-  },  
+  ], 
   "autoload": {
     "psr-4": {
       "Softwaretours\\Site\\": "src/"
