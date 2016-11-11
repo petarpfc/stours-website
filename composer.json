@@ -1,0 +1,7 @@
+{
+    "name": "softwaretours/site",
+    "description": "Software tours users site",
+    "type": "project",
+    "minimum-stability": "dev",
+    "require": {}
+}
