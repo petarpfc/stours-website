@@ -34,6 +34,10 @@ class SiteServiceProvider extends ServiceProvider
         		__DIR__.'/../Assets' => public_path('modules/site'),
         ], 'public');
         
+        $this->publishes([
+        		__DIR__.'/../assets_public' => public_path('assets'),
+        ], 'public');
+        
         
 
         view()->composer(['package::layouts.master'], function ($view) {
