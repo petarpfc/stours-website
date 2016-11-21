@@ -21,9 +21,9 @@
     </div>
 </div>
 <script type='text/javascript'>
-    var lat = "{{$product->maps['latitude']}}";
-    var long ="{{$product->maps['longitude']}}";
-    var title ="{{$product->maps['description']}}";
+    var lat = "{{$product->maps->latitude}}";
+    var long ="{{$product->maps->longitude}}";
+    var title ="{{$product->maps->description}}";
     console.log(lat);
     function init_map()
     {

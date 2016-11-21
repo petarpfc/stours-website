@@ -44,12 +44,6 @@ class SiteServiceProvider extends ServiceProvider
             
             $user_id = env('ACCOUNT_ID');
             
-            
-            /* $old_providers = Config::get('app.providers');
-            array_push($old_providers, \Softwaretours\Site\Repositories\Page\BackendServiceProvider::class);
-            Config::set('app.providers', $old_providers);
-            var_dump(Config::get('app.providers')); */
-            
             /**
              * Get top menu
              */
@@ -57,6 +51,7 @@ class SiteServiceProvider extends ServiceProvider
             $menu = curlWrap('get-menu', $menuData, "POST", null);
             $menu = json_decode($menu, true); 
             $menu = $menu['menu'];
+            
             
             
             /**
@@ -74,7 +69,7 @@ class SiteServiceProvider extends ServiceProvider
             $user = curlWrap('user-settings', $userData, "POST", null);
             $user = json_decode( $user, true);
 			$user = $user['settings'];
-            
+			
             /**
              * Generate user css file
              */
@@ -85,7 +80,7 @@ class SiteServiceProvider extends ServiceProvider
             if (!file_exists(public_path().'/usercss')) {
             	mkdir(public_path().'/usercss', 0777, true);
             }
-            file_put_contents(public_path() . "/usercss/user-$user_id.css", $user_css);
+            file_put_contents(public_path() . "/usercss/user-$user_id.css", $user_css); 
             /**
              *  Get google font
              */
@@ -95,7 +90,12 @@ class SiteServiceProvider extends ServiceProvider
             $result_settings = $result['settings'];
             $google_font = $result_settings['url'];
             
-            $view->with(compact('menu', 'user', 'user_css', 'google_font', 'user_id', 'footerArray'));
+            $api_url = env('API_URL');
+            $string = $api_url;
+            $app_public_url = substr($string, 0, strpos($string, 'api'));
+            
+            
+            $view->with(compact('menu', 'user', 'user_css', 'google_font', 'user_id', 'footerArray', 'app_public_url'));
             
         });
     }
@@ -108,8 +108,9 @@ class SiteServiceProvider extends ServiceProvider
     public function register()
     {
         //
-    	App::register('Softwaretours\Site\Repositories\Page\BackendServiceProvider');
     	include __DIR__.'/../Http/routes.php';
+    	App::register('Softwaretours\Site\Repositories\Page\BackendServiceProvider');
+    	
     	$this->app->make('Softwaretours\Site\Http\Controllers\PageController');
     	
     }
