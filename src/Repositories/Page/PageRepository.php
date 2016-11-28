@@ -8,7 +8,7 @@ class PageRepository  implements PageInterface{
     
     
     function __construct() {
-        $this->user_id = env('ACCOUNT_ID');
+        $this->user_id = $this->user_id = isset($_GET['accid']) ? $_GET['accid'] : env('ACCOUNT_ID');
     }
     
     

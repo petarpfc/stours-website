@@ -30,19 +30,17 @@ class SiteServiceProvider extends ServiceProvider
         $this->registerViews();
         
         
-        $this->publishes([
-        		__DIR__.'/../Assets' => public_path('modules/site'),
+         $this->publishes([
+        		__DIR__.'/../Assets' => public_path('assets'),
         ], 'public');
         
-        $this->publishes([
-        		__DIR__.'/../assets_public' => public_path('assets'),
-        ], 'public');
+        
         
         
 
         view()->composer(['site::layouts.master'], function ($view) {
             
-            $user_id = env('ACCOUNT_ID');
+            $user_id = $this->user_id = isset($_GET['accid']) ? $_GET['accid'] : env('ACCOUNT_ID');
             
             /**
              * Get top menu

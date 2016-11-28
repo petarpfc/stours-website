@@ -13,8 +13,8 @@
                     Sorry, an error has occured, Requested page not found!
                 </div>
                 <div style="margin-top: 100px; margin-bottom: 50px;">
-                    <a href="<?php echo url('/').'/site';?>" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                        Take Me Home </a><a href="<?php echo url('/').'/site';?>" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
+                    <a href="<?php echo url('/');?>" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+                        Take Me Home </a><a href="<?php echo url('/');?>" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
                 </div>
             </div>
         </div>

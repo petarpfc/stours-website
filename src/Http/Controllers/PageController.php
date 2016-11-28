@@ -62,9 +62,30 @@ class PageController extends Controller
        		return view('site::page.not-found');
        if(isset($result->custom_footer) && $result->custom_footer != null)
            	View::share('custom_footer', $result->custom_footer);
-       return view('site::page.page', ['title' => $result->title, 'product' => $result->product, 'posts' => $result->posts, 'settings' => $result->settings, 'menuMiddle' => $result->menuMiddle, 'page_list' => $result->page_list, 'totalPosts' => $result->totalPosts]);
+        $myViewData = View::make('site::page.page', ['title' => $result->title, 'product' => $result->product, 'posts' => $result->posts, 'settings' => $result->settings, 'menuMiddle' => $result->menuMiddle, 'page_list' => $result->page_list, 'totalPosts' => $result->totalPosts])->render();
+       echo $this->add_analytics_tracking_to_urls($myViewData, ['user_id' => $result->user_id]);
     }
 
+    
+    /**
+     * @param string $body
+     * @param array $params
+     * @return mixed
+     */
+    protected function add_analytics_tracking_to_urls($body, array $params) {
+    	return preg_replace_callback('#(<a.*?href=")([^"]*)("[^>]*?>)#i', function($match) use ($params) {
+    		$url = $match[2];
+    		if (strpos($url, '?') === false) {
+    			$url .= '?';
+    		} else {
+    			$url .= '&';
+    		}
+    		$url .= 'accid='.$params['user_id'];
+    		return $match[1] . $url . $match[3];
+    	}, $body);
+    }
+    
+    
     /**
      * Show the form for creating a new resource.
      * @return Response

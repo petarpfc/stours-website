@@ -12,7 +12,7 @@
 		<meta name="csrf_token" content="{{ csrf_token() }}">
         <link rel="apple-touch-icon" href="{{URL::asset($user['favicon'])}}">
         
-        <link rel="icon" href="{{URL::asset($app_public_url.$user['favicon'])}}">
+        <link rel="icon" href="{{url($app_public_url.$user['favicon'])}}">
 
 		<!-- Latest compiled and minified CSS -->
 		{{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--}}
@@ -25,13 +25,14 @@
 		<script src="{{URL::asset('assets/js/libs/angular.min.js')}}"></script>
 
         <link href="{{URL::asset('modules/site/css/style.css')}}" rel="stylesheet">
-
+		<link href="{{url($app_public_url.'user/user-'.$user_id.'/css/user-'.$user_id.'.css')}}" rel="stylesheet">
+		
         @yield('head')
 		@if($google_font !="")
 			<link href="{{$google_font}}" rel="stylesheet">
 		@endif
-		<style>{!!$user_css!!}</style>
-		<link href="{{URL::asset("usercss/user-".$user_id.".css")}}" rel="stylesheet">
+		
+		
 	<body>
 		<!-- Navigation -->
 		@include('site::partials.menu')

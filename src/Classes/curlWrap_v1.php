@@ -5,7 +5,11 @@
      * Curl Wrap
      *
      * The Curl Wrap is the entry point to all services.
+     * 
+     * 
      */
+    
+    
 
 
     function curlWrap($entity, $sentData, $method, $content_type) {
@@ -20,13 +24,15 @@
             $content_type = "application/json";
         }
         if($entity == 'get-menu' || $entity == 'get-footer'){
+        	
         	$current_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         	
-        	$trimmedUrl = (strstr($current_url, 'public/', true)); 
+        	
+        	$current_url = (strstr($current_url, 'public/', true)); 
         	
         	if(is_null($api_url))
-        		$send_url = (strstr($trimmedUrl, '/site', true));
-        	else $send_url = $trimmedUrl;
+        		$send_url = (strstr($current_url, '/site', true));
+        	else $send_url = $current_url;
         	$sentData['host_link'] = $send_url;
         }
         
