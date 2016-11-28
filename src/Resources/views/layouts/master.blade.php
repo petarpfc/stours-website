@@ -16,15 +16,15 @@
 
 		<!-- Latest compiled and minified CSS -->
 		{{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--}}
-		<link rel="stylesheet" href="{{URL::asset('assets/bootstrap-3.3.7/css/bootstrap.min.css')}}">
+		<link rel="stylesheet" href="{{URL::asset('st-assets/bootstrap-3.3.7/css/bootstrap.min.css')}}">
 
-		<link rel="stylesheet" href="{{URL::asset('assets/css/font-awesome-4.6.3/css/font-awesome.min.css')}}">
+		<link rel="stylesheet" href="{{URL::asset('st-assets/css/font-awesome-4.6.3/css/font-awesome.min.css')}}">
 
-		<script src="{{URL::asset('assets/js/libs/jquery-3.1.1.min.js')}}"></script>
-		<script src="{{URL::asset('assets/js/libs/jquery-ui.min.js')}}"></script>
-		<script src="{{URL::asset('assets/js/libs/angular.min.js')}}"></script>
+		<script src="{{URL::asset('st-assets/js/libs/jquery-3.1.1.min.js')}}"></script>
+		<script src="{{URL::asset('st-assets/js/libs/jquery-ui.min.js')}}"></script>
+		<script src="{{URL::asset('st-assets/js/libs/angular.min.js')}}"></script>
 
-        <link href="{{URL::asset('assets/css/style.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('st-assets/css/style.css')}}" rel="stylesheet">
 		<link href="{{url($app_public_url.'user/user-'.$user_id.'/css/user-'.$user_id.'.css')}}" rel="stylesheet">
 		
         @yield('head')
@@ -45,9 +45,9 @@
 		<!-- Bootstrap core JavaScript
 			================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="{{URL::asset('assets/bootstrap-3.3.7/js/bootstrap.min.js')}}"></script>
-		<script src="{{URL::asset('assets/js/libs/bootstrap-hover-dropdown.min.js')}}"></script>
-		<script src="{{URL::asset('assets/js/libs/bootbox.min.js')}}"></script>
+		<script src="{{URL::asset('st-assets/bootstrap-3.3.7/js/bootstrap.min.js')}}"></script>
+		<script src="{{URL::asset('st-assets/js/libs/bootstrap-hover-dropdown.min.js')}}"></script>
+		<script src="{{URL::asset('st-assets/js/libs/bootbox.min.js')}}"></script>
 		{{--<script src="{{URL::asset('modules/site/js/jquery.bxslider.js')}}"></script>--}}
 		{{--<script src="{{URL::asset('modules/site/js/mooz.scripts.min.js')}}"></script>--}}
 		@yield('scripts_js')

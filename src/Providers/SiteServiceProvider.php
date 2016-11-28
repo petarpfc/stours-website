@@ -31,7 +31,7 @@ class SiteServiceProvider extends ServiceProvider
         
         
          $this->publishes([
-        		__DIR__.'/../Assets' => public_path('assets'),
+        		__DIR__.'/../Assets' => public_path('st-assets'),
         ], 'public');
         
         
@@ -75,10 +75,10 @@ class SiteServiceProvider extends ServiceProvider
             $user_css = "";
             $user_css = curlWrap('make-css', array('user_id' => $user_id), "POST", null);
             
-            if (!file_exists(public_path().'/usercss')) {
+            /* if (!file_exists(public_path().'/usercss')) {
             	mkdir(public_path().'/usercss', 0777, true);
             }
-            file_put_contents(public_path() . "/usercss/user-$user_id.css", $user_css); 
+            file_put_contents(public_path() . "/usercss/user-$user_id.css", $user_css);  */
             /**
              *  Get google font
              */
