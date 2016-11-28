@@ -4,7 +4,7 @@
 	var $url_load_more = "{{route('posts.load-more')}}"
 	var token = "{{ csrf_token() }}";
 </script>
-<script src="{{URL::asset('/modules/site/js/ajax-functions.js')}}"></script>
+<script src="{{URL::asset('assets/js/ajax-functions.js')}}"></script>
 @endsection
 @section('content')
 	{{--toDO: odvojiti page layout i homePageLayou jer homepage ce imati puno opcija--}}

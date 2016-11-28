@@ -1,5 +1,5 @@
 @section('head')
-	<link rel="stylesheet" href="{{URL::asset('modules/site/packages/swiper/css/swiper.min.css')}}">
+	<link rel="stylesheet" href="{{URL::asset('assets/js/swiper/css/swiper.min.css')}}">
 @stop
 @if(count($product->images)>=1)
 	<div id="slajder">
@@ -20,7 +20,7 @@
 	</div>
 @endif
 @section('slider')
-	<script src="{{URL::asset('modules/site/packages/swiper/js/swiper.min.js')}}"></script>
+	<script src="{{URL::asset('assets/js/swiper/js/swiper.min.js')}}"></script>
 	<script>
 		var swiper = new Swiper('.swiper-container', {
 			pagination: '.swiper-pagination',

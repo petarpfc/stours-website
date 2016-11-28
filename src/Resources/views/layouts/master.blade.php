@@ -24,7 +24,7 @@
 		<script src="{{URL::asset('assets/js/libs/jquery-ui.min.js')}}"></script>
 		<script src="{{URL::asset('assets/js/libs/angular.min.js')}}"></script>
 
-        <link href="{{URL::asset('modules/site/css/style.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/css/style.css')}}" rel="stylesheet">
 		<link href="{{url($app_public_url.'user/user-'.$user_id.'/css/user-'.$user_id.'.css')}}" rel="stylesheet">
 		
         @yield('head')
