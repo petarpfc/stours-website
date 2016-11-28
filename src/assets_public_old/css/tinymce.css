@@ -1,8 +1,0 @@
-/* = TinyMCE editor APP styles (not used on site)
--------------------------------------------------------------- */
-#tinymce body {
-  margin: 32px 10px 72px;
-}
-#tinymce div {
-  border: 1px dotted #dadada;
-}
