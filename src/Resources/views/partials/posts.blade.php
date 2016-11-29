@@ -9,19 +9,19 @@
 @endif
     @if(is_array($postsDecode))
     @foreach($postsDecode as $p)
-    	<?php $category_id = $p['category_id'];?>
-    	@if(($counter % $settings->columns_per_page) == 1 && $counter>$settings->columns_per_page)
-        <div class="row st-three-col-marketing-box text-center">
-        @endif
-            <div class="col-sm-<?php echo 12/$settings->columns_per_page;?>">
-                <a href="<?php echo $p['permalink'];?>">
-                <img class="img-rounded img-responsive st-img-center" src="<?php if(isset($p['gallery'][0]['path'])) echo $p['gallery'][0]['path'].'/full_size/'.$p['gallery'][0]['filename']; else echo "http://placehold.it/120x120";?>" alt="" /></a>
-                <h3><a class="no-decoration" href="<?php echo $p['permalink'];?>"><?php echo $p['title'];?></a></h3>
-                <p><?php echo strip_tags(substr($p['content'], 0, 200));?></p>
-            </div>
-        @if(($counter % $settings->columns_per_page) == 0 || ($p['id'] == $idEnd && ($counter < $settings->columns_per_page)))
-    		</div>
-    	@endif
+    <?php $category_id = $p['category_id'];?>
+    @if(($counter % $settings->columns_per_page) == 1 && $counter>$settings->columns_per_page)
+    <div class="row st-three-col-marketing-box text-center">
+    @endif
+        <div class="col-sm-<?php echo 12/$settings->columns_per_page;?>">
+            <a href="<?php echo $p['permalink'];?>">
+            <img class="img-rounded img-responsive st-img-center" src="<?php if(isset($p['gallery'][0]['path'])) echo $p['gallery'][0]['path'].'/full_size/'.$p['gallery'][0]['filename']; else echo "http://placehold.it/120x120";?>" alt="" /></a>
+            <h3><a class="no-decoration" href="<?php echo $p['permalink'];?>"><?php echo $p['title'];?></a></h3>
+            <p><?php echo strip_tags(substr($p['content'], 0, 200));?></p>
+        </div>
+    @if(($counter % $settings->columns_per_page) == 0 || ($p['id'] == $idEnd && ($counter < $settings->columns_per_page)))
+        </div>
+    @endif
     @endforeach
     @endif
 @if(!isset($ajax))

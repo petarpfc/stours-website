@@ -1,6 +1,7 @@
 <style>
     #gmap_canvas img{max-width:none!important;background:none!important}
 </style>
+<!-- GOOGLE MAP -->
 <div class="row">
     <div class="container">
         <div class="col-md-12">
