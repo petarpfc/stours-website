@@ -2,7 +2,7 @@
 
 namespace Softwaretours\Site\Providers;
 //var_dump(dirname(__DIR__)."../Classes/curlWrap_v1.php"); exit();
-include(__DIR__."/../Classes/curlWrap_v1.php");
+include(__DIR__ . "/../Classes/curlWrap_v1.php");
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\App;
@@ -28,73 +28,65 @@ class SiteServiceProvider extends ServiceProvider
         //$this->registerTranslations();
         //$this->registerConfig();
         $this->registerViews();
-        
-        
-         $this->publishes([
-        		__DIR__.'/../Assets' => public_path('st-assets'),
+
+
+        $this->publishes([
+            __DIR__ . '/../Assets' => public_path('st-assets'),
         ], 'public');
-        
-        
-        
-        
+
 
         view()->composer(['site::layouts.master'], function ($view) {
-            
+
             $user_id = $this->user_id = isset($_GET['accid']) ? $_GET['accid'] : env('ACCOUNT_ID');
-            
+
             /**
              * Get top menu
              */
             $menuData['user_id'] = $user_id;
             $menu = curlWrap('get-menu', $menuData, "POST", null);
-            $menu = json_decode($menu, true); 
+            $menu = json_decode($menu, true);
             $menu = $menu['menu'];
-            
-            
-            
+
+
             /**
              * Get footer menu (default) - not used if page has it's own custom footer
              */
             $footerData['user_id'] = $user_id;
             $footerArray = curlWrap('get-footer', $footerData, 'POST', null);
             $footerArray = json_decode($footerArray, true);
-            
+
 
             /**
              *  User settings
              */
             $userData['user_id'] = $user_id;
             $user = curlWrap('user-settings', $userData, "POST", null);
-            $user = json_decode( $user, true);
-			$user = $user['settings'];
-			
+            $user = json_decode($user, true);
+            $user = $user['settings'];
+
             /**
              * Generate user css file
              */
 
-            $user_css = "";
             $user_css = curlWrap('make-css', array('user_id' => $user_id), "POST", null);
-            
-            /* if (!file_exists(public_path().'/usercss')) {
-            	mkdir(public_path().'/usercss', 0777, true);
-            }
-            file_put_contents(public_path() . "/usercss/user-$user_id.css", $user_css);  */
+            file_put_contents(public_path() . "/st-assets/css/main.css", $user_css);
+
             /**
              *  Get google font
              */
             $result = curlWrap('get-google-font', array('user_id' => $user_id), "POST", null);
             $result = json_decode($result, true);
-           
+
             $result_settings = $result['settings'];
             $google_font = $result_settings['url'];
-            
+
             $api_url = env('API_URL');
             $string = $api_url;
             $app_public_url = substr($string, 0, strpos($string, 'api'));
-            
-            
-            $view->with(compact('menu', 'user', 'user_css', 'google_font', 'user_id', 'footerArray', 'app_public_url'));
-            
+
+
+            $view->with(compact('menu', 'user', 'google_font', 'user_id', 'footerArray', 'app_public_url'));
+
         });
     }
 
@@ -106,11 +98,11 @@ class SiteServiceProvider extends ServiceProvider
     public function register()
     {
         //
-    	include __DIR__.'/../Http/routes.php';
-    	App::register('Softwaretours\Site\Repositories\Page\BackendServiceProvider');
-    	
-    	$this->app->make('Softwaretours\Site\Http\Controllers\PageController');
-    	
+        include __DIR__ . '/../Http/routes.php';
+        App::register('Softwaretours\Site\Repositories\Page\BackendServiceProvider');
+
+        $this->app->make('Softwaretours\Site\Http\Controllers\PageController');
+
     }
 
     /**
@@ -133,8 +125,8 @@ class SiteServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-    	$this->loadViewsFrom((__DIR__).'/../Resources/views', 'site');
-    	
+        $this->loadViewsFrom((__DIR__) . '/../Resources/views', 'site');
+
         /* $viewPath = base_path('resources/views/modules/site');
 
         $sourcePath = __DIR__ . '/../Resources/views';
