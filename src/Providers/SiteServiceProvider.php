@@ -38,6 +38,7 @@ class SiteServiceProvider extends ServiceProvider
         view()->composer(['site::layouts.master'], function ($view) {
 
             $user_id = $this->user_id = isset($_GET['accid']) ? $_GET['accid'] : env('ACCOUNT_ID');
+            $user_id = (int) strip_tags($user_id);
 
             /**
              * Get top menu
@@ -83,7 +84,7 @@ class SiteServiceProvider extends ServiceProvider
             $api_url = env('API_URL');
             $string = $api_url;
             $app_public_url = substr($string, 0, strpos($string, 'api'));
-
+			$app_public_url = strip_tags($app_public_url);
 
             $view->with(compact('menu', 'user', 'google_font', 'user_id', 'footerArray', 'app_public_url'));
 

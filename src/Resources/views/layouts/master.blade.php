@@ -33,7 +33,7 @@
         <!-- PAGE CSS -->
         {{--<link href="{{URL::asset('st-assets/css/style.css')}}" rel="stylesheet">--}}
         
-        <link href="{{url($app_public_url.'/user/user-'.$user_id.'/css/'.'main.css')}}" rel="stylesheet">
+        <link href="{{url($app_public_url.'user/user-'.$user_id.'/css/'.'main.css')}}" rel="stylesheet">
     </head>
 	<body>
 		<!-- Navigation -->
