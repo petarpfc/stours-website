@@ -11,7 +11,7 @@
 		</div>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<?php echo ($menuMiddle);?>
+				<?php echo $menuMiddle->menu;?>
 			</ul>
 		</div>
 		<!--/.nav-collapse -->

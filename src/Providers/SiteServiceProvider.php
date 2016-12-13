@@ -35,7 +35,7 @@ class SiteServiceProvider extends ServiceProvider
         ], 'public');
 
 
-        view()->composer(['site::layouts.master'], function ($view) {
+        view()->composer(['site::page.page', 'site::layouts.master'], function ($view) {
 
             $user_id = $this->user_id = isset($_GET['accid']) ? $_GET['accid'] : env('ACCOUNT_ID');
             $user_id = (int) strip_tags($user_id);

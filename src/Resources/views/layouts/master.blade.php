@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Title -->
 		<title>@if(isset($product->title)){{$product->title}}@endif</title>
 
         <!-- Seo Meta tags -->
@@ -30,24 +31,24 @@
         <!-- Included per page css (plugins css) -->
         @yield('head')
 
-        <!-- PAGE CSS -->
-        {{--<link href="{{URL::asset('st-assets/css/style.css')}}" rel="stylesheet">--}}
-        
+        <!-- User css -->
+
         <link href="{{URL::asset('st-assets/css/main.css')}}" rel="stylesheet">
     </head>
 	<body>
 		<!-- Navigation -->
 		@include('site::partials.menu')
-        <!-- /.Navigation -->
+        <!-- /. -->
 
         <!-- Content -->
 		@yield('content')
-        <!-- /.Content -->
+        <!-- /. -->
 
         <!-- Footer -->
-       
+        <div class="footer-content">
 		@include('site::partials.footer')
-        <!-- /.Footer -->
+        </div>
+        <!-- /. -->
 
 		<!-- Bootstrap core JavaScript
 			================================================== -->

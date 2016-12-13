@@ -54,16 +54,38 @@ class PageController extends Controller
     
     public function page($title = null)
     {
-        
-       $result = json_decode($this->repositoryObj->page($title));
-       $result = (isset($result->content))? $result->content:$result;
-       //var_dump($result); exit();
-       if($result->not_found)
-       		return view('site::page.not-found');
-       if(isset($result->custom_footer) && $result->custom_footer != null)
-           	View::share('custom_footer', $result->custom_footer);
-        $myViewData = View::make('site::page.page', ['title' => $result->title, 'product' => $result->product, 'posts' => $result->posts, 'settings' => $result->settings, 'menuMiddle' => $result->menuMiddle, 'page_list' => $result->page_list, 'totalPosts' => $result->totalPosts])->render();
-       echo $this->add_analytics_tracking_to_urls($myViewData, ['user_id' => $result->user_id]);
+        //var_dump($this->repositoryObj->page($title)); exit();
+        $result = json_decode($this->repositoryObj->page($title));
+        if($result == null)
+            die('Site error');
+        $result = (isset($result->content))? $result->content:$result;
+        //var_dump($result); exit();
+        if($result->not_found)
+            return view('site::page.not-found');
+        if(isset($result->custom_footer) && $result->custom_footer != null)
+            View::share('custom_footer', $result->custom_footer);
+        $featured_images = [];
+        $non_featured_images = [];
+        foreach($result->product->images as $img)
+        {
+            if($img->featured == 1)
+                array_push($featured_images, $img);
+            else
+                array_push($non_featured_images, $img);
+        }
+        $myViewData = View::make('site::page.page', [
+            'title' => $result->title,
+            'product' => $result->product,
+            'posts' => $result->posts,
+            'settings' => $result->settings,
+            'menuMiddle' => $result->menuMiddle,
+            'page_list' => $result->page_list,
+            'totalPosts' => $result->totalPosts,
+            'featured_images' => $featured_images,
+            'non_featured_images' => $non_featured_images
+        ])->render();
+        // Add ?accid to all a hrefs
+        echo $this->add_analytics_tracking_to_urls($myViewData, ['user_id' => $result->user_id]);
     }
 
     

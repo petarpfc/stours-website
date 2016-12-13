@@ -4,6 +4,7 @@
         $idEnd = $end['id'];
         $category_id;
 ?>
+<div class="row">
 @if(!isset($ajax))
 <div class="st-marketing-box text-center" id="posts-content">
 @endif
@@ -27,7 +28,7 @@
 @if(!isset($ajax))
 </div>
 @endif
-
+</div>
 @if(!isset($ajax))
 	@if(count($totalPosts) > $settings->posts_per_page)
 		<div class="row text-center"> 

@@ -23,7 +23,7 @@
     	if ($content_type == NULL) {
             $content_type = "application/json";
         }
-        if($entity == 'get-menu' || $entity == 'get-footer'){
+        if($entity == 'get-menu' || $entity == 'get-footer' || $entity == 'page-content'){
         	
         	$current_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         	

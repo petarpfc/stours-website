@@ -1,18 +1,18 @@
 @section('head')
 <link rel="stylesheet" href="{{URL::asset('st-assets/js/swiper/css/swiper.min.css')}}">
 @stop
-@if(count($product->images)>=1)
+@if(count($featured_images)>=1)
     <!-- SWIPER SLIDER -->
-    <div id="slajder">
+    <div id="banner">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                @foreach($product->images as $img)
+                @foreach($featured_images as $img)
                 <div class="swiper-slide" style="background-image:url({{$img->path.'/full_size/'.$img->filename}})">
                     <div class="title" data-swiper-parallax="-100">{!!$img->h1!!}</div>
                 </div>
                 @endforeach
             </div>
-            @if(count($product->images)>1)
+            @if(count($featured_images)>1)
             <div class="swiper-pagination swiper-pagination-white"></div>
             <div class="swiper-button-next swiper-button-white"></div>
             <div class="swiper-button-prev swiper-button-white"></div>
